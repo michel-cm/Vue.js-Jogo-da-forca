@@ -18,7 +18,13 @@
     </section>
 
     <section class="jogo" v-if="tela === 'jogo'">
-      <JogoView :erros="erros" />
+      <JogoView
+        :erros="erros"
+        :palavra="palavra"
+        :dica="dica"
+        :verificarLetra="verificarLetra"
+        :etapa="etapa"
+      />
     </section>
   </div>
 </template>
@@ -37,6 +43,7 @@ export default {
       palavra: "",
       dica: "",
       erros: 0,
+      letras: [],
     };
   },
   methods: {
@@ -48,6 +55,11 @@ export default {
       this.dica = dica;
       this.tela = "jogo";
       this.etapa = "jogo";
+    },
+    verificarLetra(letra) {
+      return this.letras.find(
+        (item) => item.toLowerCase() === letra.toLowerCase()
+      );
     },
   },
   components: {

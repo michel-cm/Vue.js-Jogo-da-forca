@@ -1,11 +1,19 @@
 <template>
   <div class="jogo">
-    <Forca :erros="erros" />
+    <ForcaView :erros="erros" />
+
+    <PalavraView
+      :palavra="palavra"
+      :dica="dica"
+      :verificarLetra="verificarLetra"
+      :etapa="etapa"
+    />
   </div>
 </template>
 
 <script>
-import Forca from "./ForcaView.vue";
+import ForcaView from "./ForcaView.vue";
+import PalavraView from "./PalavraView.vue";
 
 export default {
   name: "JogoView",
@@ -15,9 +23,14 @@ export default {
   methods: {},
   props: {
     erros: Number,
+    palavra: String,
+    dica: String,
+    verificarLetra: Function,
+    etapa: String,
   },
   components: {
-    Forca,
+    ForcaView,
+    PalavraView,
   },
 };
 </script>
