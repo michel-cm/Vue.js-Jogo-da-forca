@@ -15,6 +15,12 @@
       :jogar="jogar"
       v-if="etapa === 'jogo'"
     />
+
+    <FinalView
+      v-if="etapa != 'jogo'"
+      :etapa="etapa"
+      :texto="etapa === 'ganhador' ? 'Parabens :)' : 'Perdeu :C'"
+    />
   </div>
 </template>
 
@@ -22,6 +28,7 @@
 import ForcaView from "./ForcaView.vue";
 import PalavraView from "./PalavraView.vue";
 import TecladoView from "./TecladoView.vue";
+import FinalView from "./FinalView.vue";
 
 export default {
   name: "JogoView",
@@ -42,6 +49,7 @@ export default {
     ForcaView,
     PalavraView,
     TecladoView,
+    FinalView,
   },
 };
 </script>
