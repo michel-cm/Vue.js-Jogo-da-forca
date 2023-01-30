@@ -3,8 +3,17 @@
     <h1>Jogo da Forca WDEV</h1>
 
     <section class="inicio" v-if="tela === 'inicio'">
-      <FormularioView title="Defina a palavra" button="Próximo" />
-      <FormularioView title="Defina a dica" button="Iniciar jogo :)" />
+      <FormularioView
+        v-if="etapa === 'palavra'"
+        title="Defina a palavra"
+        button="Próximo"
+        :action="setPalavra"
+      />
+      <FormularioView
+        v-if="etapa === 'dica'"
+        title="Defina a dica"
+        button="Iniciar jogo :)"
+      />
     </section>
 
     <section class="jogo" v-if="tela === 'jogo'">jogo</section>
@@ -20,7 +29,13 @@ export default {
   data() {
     return {
       tela: "inicio",
+      etapa: "palavra",
     };
+  },
+  methods: {
+    setPalavra(palavra) {
+      alert(palavra);
+    },
   },
   components: {
     FormularioView,

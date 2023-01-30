@@ -1,17 +1,31 @@
 <template>
   <div class="formulario">
     <div class="formulario-title">{{ title }}</div>
-    <input type="text" class="formulario-input" />
-    <button>{{ button }}</button>
+    <input type="text" class="formulario-input" v-model="inputValue" />
+    <button @click="onSubmit" :disabled="inputValue.length === 0">
+      {{ button }}
+    </button>
   </div>
 </template>
 
 <script>
 export default {
   name: "FormularioView",
+  data() {
+    return {
+      inputValue: "",
+    };
+  },
+  methods: {
+    onSubmit() {
+      this.action(this.inputValue);
+      this.inputValue = "";
+    },
+  },
   props: {
     title: String,
     button: String,
+    action: Function,
   },
 };
 </script>
