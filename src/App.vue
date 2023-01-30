@@ -13,6 +13,7 @@
         v-if="etapa === 'dica'"
         title="Defina a dica"
         button="Iniciar jogo :)"
+        :action="setDica"
       />
     </section>
 
@@ -30,11 +31,19 @@ export default {
     return {
       tela: "inicio",
       etapa: "palavra",
+      palavra: "",
+      dica: "",
     };
   },
   methods: {
     setPalavra(palavra) {
-      alert(palavra);
+      this.palavra = palavra;
+      this.etapa = "dica";
+    },
+    setDica(dica) {
+      this.dica = dica;
+      this.tela = "jogo";
+      this.etapa = "jogo";
     },
   },
   components: {
