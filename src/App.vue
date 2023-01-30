@@ -17,13 +17,16 @@
       />
     </section>
 
-    <section class="jogo" v-if="tela === 'jogo'">jogo</section>
+    <section class="jogo" v-if="tela === 'jogo'">
+      <JogoView />
+    </section>
   </div>
 </template>
 
 <script>
 import "./css/global.css";
 import FormularioView from "@/components/FormularioView.vue";
+import JogoView from "@/components/JogoView.vue";
 
 export default {
   name: "App",
@@ -48,6 +51,7 @@ export default {
   },
   components: {
     FormularioView,
+    JogoView,
   },
 };
 </script>
