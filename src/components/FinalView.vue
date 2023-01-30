@@ -2,7 +2,7 @@
   <div class="final">
     <div :class="`final-texto ${etapa}`">{{ texto }}</div>
 
-    <button class="final-botao">Jogar novamente</button>
+    <button class="final-botao" @click="jogarNovamente">Jogar novamente</button>
   </div>
 </template>
 
@@ -12,6 +12,7 @@ export default {
   props: {
     etapa: String,
     texto: String,
+    jogarNovamente: Function,
   },
 };
 </script>

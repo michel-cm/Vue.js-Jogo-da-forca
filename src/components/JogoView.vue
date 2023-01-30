@@ -20,6 +20,7 @@
       v-if="etapa != 'jogo'"
       :etapa="etapa"
       :texto="etapa === 'ganhador' ? 'Parabens :)' : 'Perdeu :C'"
+      :jogarNovamente="jogarNovamente"
     />
   </div>
 </template>
@@ -44,6 +45,7 @@ export default {
     etapa: String,
     letras: Array,
     jogar: Function,
+    jogarNovamente: Function,
   },
   components: {
     ForcaView,
