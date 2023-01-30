@@ -2,7 +2,10 @@
   <div id="app">
     <h1>Jogo da Forca WDEV</h1>
 
-    <section class="inicio" v-if="tela === 'inicio'">Inicio</section>
+    <section class="inicio" v-if="tela === 'inicio'">
+      <FormularioView title="Defina a palavra" button="Próximo" />
+      <FormularioView title="Defina a dica" button="Iniciar jogo :)" />
+    </section>
 
     <section class="jogo" v-if="tela === 'jogo'">jogo</section>
   </div>
@@ -10,6 +13,7 @@
 
 <script>
 import "./css/global.css";
+import FormularioView from "@/components/FormularioView.vue";
 
 export default {
   name: "App",
@@ -18,7 +22,9 @@ export default {
       tela: "inicio",
     };
   },
-  components: {},
+  components: {
+    FormularioView,
+  },
 };
 </script>
 
