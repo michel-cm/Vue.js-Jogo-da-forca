@@ -24,6 +24,8 @@
         :dica="dica"
         :verificarLetra="verificarLetra"
         :etapa="etapa"
+        :letras="letras"
+        :jogar="jogar"
       />
     </section>
   </div>
@@ -60,6 +62,36 @@ export default {
       return this.letras.find(
         (item) => item.toLowerCase() === letra.toLowerCase()
       );
+    },
+
+    jogar(letra) {
+      // add letra jogada
+      this.letras.push(letra);
+
+      //validar erro
+      this.verificarErros(letra);
+    },
+
+    verificarErros(letra) {
+      //acerto
+      if (this.palavra.toLowerCase().indexOf(letra.toLowerCase()) >= 0) {
+        return this.verifcarAcertos();
+      }
+
+      //erros
+      this.erros++;
+
+      //enforcado
+      if (this.erros === 6) {
+        this.etapa = "enforcado";
+      }
+    },
+
+    verificarAcertos() {
+      let letrasUnicas = [...new Set(this.palavra.split(""))];
+      if (letrasUnicas.length === this.letras.length - this.erros) {
+        this.etapa = "ganhador";
+      }
     },
   },
   components: {

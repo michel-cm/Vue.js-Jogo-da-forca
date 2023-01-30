@@ -8,12 +8,19 @@
       :verificarLetra="verificarLetra"
       :etapa="etapa"
     />
+
+    <TecladoView
+      :letras="letras"
+      :verificarLetra="verificarLetra"
+      :jogar="jogar"
+    />
   </div>
 </template>
 
 <script>
 import ForcaView from "./ForcaView.vue";
 import PalavraView from "./PalavraView.vue";
+import TecladoView from "./TecladoView.vue";
 
 export default {
   name: "JogoView",
@@ -27,10 +34,13 @@ export default {
     dica: String,
     verificarLetra: Function,
     etapa: String,
+    letras: Array,
+    jogar: Function,
   },
   components: {
     ForcaView,
     PalavraView,
+    TecladoView,
   },
 };
 </script>
