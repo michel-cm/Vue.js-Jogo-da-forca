@@ -13,6 +13,7 @@
       :letras="letras"
       :verificarLetra="verificarLetra"
       :jogar="jogar"
+      v-if="etapa === 'jogo'"
     />
   </div>
 </template>

@@ -75,7 +75,7 @@ export default {
     verificarErros(letra) {
       //acerto
       if (this.palavra.toLowerCase().indexOf(letra.toLowerCase()) >= 0) {
-        return this.verifcarAcertos();
+        return this.verificarAcertos();
       }
 
       //erros
