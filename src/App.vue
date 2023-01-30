@@ -18,7 +18,7 @@
     </section>
 
     <section class="jogo" v-if="tela === 'jogo'">
-      <JogoView />
+      <JogoView :erros="erros" />
     </section>
   </div>
 </template>
@@ -36,6 +36,7 @@ export default {
       etapa: "palavra",
       palavra: "",
       dica: "",
+      erros: 0,
     };
   },
   methods: {
